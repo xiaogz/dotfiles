@@ -14,8 +14,8 @@ cd $curr_dir
 
 for file in $files; do
   echo "Moving old dotfiles to backup folder..."
-  mv ~/.$file ~/$old_dir
+  mv ~/.$file $old_dir
   echo "Now creating symlinks for current dotfiles..."
-  ln -s $curr_dir/$file ~/.$file
+  ln -fs $curr_dir/$file ~/.$file
 done
 
