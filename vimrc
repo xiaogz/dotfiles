@@ -4,6 +4,7 @@ call plug#begin('~/.vim/plugged')
 
 " vim plugged
 Plug 'Yggdroot/indentLine'
+Plug 'vim-perl/vim-perl'
 Plug 'craigemery/vim-autotag'
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'octol/vim-cpp-enhanced-highlight'
