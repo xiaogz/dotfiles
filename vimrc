@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'Yggdroot/indentLine'
 Plug 'vim-perl/vim-perl'
 Plug 'craigemery/vim-autotag'
-Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
@@ -14,6 +13,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'altercation/vim-colors-solarized'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 Plug 'lervag/vimtex'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 syntax on
@@ -43,7 +46,8 @@ let g:ycm_filetype_whitelist = {
   \ 'c': 1,
   \ 'hh': 1,
   \ 'mm': 1,
-  \ 'metal': 1
+  \ 'metal': 1,
+  \ 'dart': 1
   \}
 
 syntax enable
@@ -79,6 +83,9 @@ noremap <F4> :NERDTreeToggle<ENTER>
 nnoremap <silent> zp :nohlsearch <CR>
 set hlsearch
 :nohlsearch
+
+" let mousewheel scroll move screen not just cursor
+set mouse=a
 
 " turn off bad error msgs related to brackets
 let c_no_curly_error=1
