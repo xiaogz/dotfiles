@@ -9,10 +9,11 @@ Plug 'craigemery/vim-autotag'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'altercation/vim-colors-solarized'
 Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', { 'for': 'tex' }
+Plug 'majutsushi/tagbar'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
@@ -46,8 +47,7 @@ let g:ycm_filetype_whitelist = {
   \ 'c': 1,
   \ 'hh': 1,
   \ 'mm': 1,
-  \ 'metal': 1,
-  \ 'dart': 1
+  \ 'metal': 1
   \}
 
 syntax enable
@@ -66,10 +66,13 @@ set formatoptions+=1
 autocmd BufNewFile,BufRead *.grg setlocal shiftwidth=3
 
 " for reading Metal files
-autocmd BufNewFile,BufRead *.metal setlocal filetype=cpp
-autocmd BufNewFile,BufRead *.mm setlocal filetype=cpp
-autocmd BufNewFile,BufRead *.cl setlocal filetype=c
-autocmd BufNewFile,BufRead *.cu setlocal filetype=c
+augroup Metal
+  autocmd!
+  autocmd BufNewFile,BufRead *.metal setlocal filetype=cpp
+  autocmd BufNewFile,BufRead *.mm setlocal filetype=cpp
+  autocmd BufNewFile,BufRead *.cl setlocal filetype=c
+  autocmd BufNewFile,BufRead *.cu setlocal filetype=c
+augroup END
 
 " change tab settings when opening python files
 autocmd BufNewFile,BufRead *.py setlocal expandtab tabstop=4 shiftwidth=4
@@ -77,7 +80,7 @@ autocmd BufNewFile,BufRead *.py setlocal expandtab tabstop=4 shiftwidth=4
 nnoremap j gj
 nnoremap k gk
 
-noremap <F4> :NERDTreeToggle<ENTER>
+noremap <F4> :NERDTreeToggle<CR>
 
 " removes highlighted search results until next search
 nnoremap <silent> zp :nohlsearch <CR>
@@ -105,8 +108,12 @@ set backspace=2
 " remove trailing whitespace with mapped key
 nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
+nnoremap <F8> :TagbarToggle<CR>
+
 " enable manual folding (foldmethod abbreviated to fdm);
 set fdm=syntax
+" foldnestmax set to 5 levels max
+set fdn=5
 " but disable auto-folding when I open file
 set foldlevelstart=99
 
@@ -166,5 +173,9 @@ set cursorline
 
 "disable LaTeX symbol conversion
 let g:tex_conceal = ""
+" make vim consider all .tex files as latex, not plaintex, etc
+let g:tex_flavor = "latex"
+"diable vimtex verbose warning
+let g:vimtex_disable_version_warning = 1
 
 
