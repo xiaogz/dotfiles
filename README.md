@@ -1,5 +1,5 @@
-# Vim dotfile repository
+# dotfile repository
 
 For easier personal work-setting integration.
 
-Mostly for .vimrc
+Has .vimrc, its plugins, tmux, plus some .bashrc aliases and .profile settings
