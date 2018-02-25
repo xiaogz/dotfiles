@@ -25,4 +25,19 @@ done
 vim +PlugInstall +qall
 
 # copy the ycm config file to its proper place
-cp ycm_extra_conf.py ~/.vim/plugged/YouCompleteMe
+if [ -d ~/.vim/plugged/YouCompleteMe ]; then
+    cp ycm_extra_conf.py ~/.vim/plugged/YouCompleteMe
+fi
+
+# add extra aliases to ~/.bashrc
+echo "# extra git-related aliases" >> ~/.bashrc
+echo "alias gs='git status'" >> ~/.bashrc
+echo "alias gl='git log'" >> ~/.bashrc
+echo "alias gd='git diff'" >> ~/.bashrc
+echo "alias glo='git log --pretty=oneline'" >> ~/.bashrc
+
+# add extra settings to ~/.profile
+echo "# prevent ctrl+D from closing terminal" >> ~/.profile
+echo "set -o ignoreeof" >> ~/.profile
+echo "# change capslock to control" >> ~/.profile
+echo "setxkbmap -layout us -option ctrl:nocaps" >> ~/.profile
