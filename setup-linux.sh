@@ -21,4 +21,8 @@ for file in $files; do
   ln -fs $curr_dir/$file ~/.$file
 done
 
-# copy the ycm config file
+# setup Vim plugins and exit
+vim +PlugInstall +qall
+
+# copy the ycm config file to its proper place
+cp ycm_extra_conf.py ~/.vim/plugged/YouCompleteMe
