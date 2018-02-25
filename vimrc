@@ -11,11 +11,12 @@ Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'mhinz/vim-startify'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': 'yes \| ./install'}
-"Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " Emmet for html-traversal
 Plug 'mattn/emmet-vim'
 Plug 'altercation/vim-colors-solarized'
-Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+"Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
+"this lets vimplug load YCM but won't update it
+"Plug '~/.vim/plugged/YouCompleteMe', {'do': './install.py --clang-completer'}
 " ycm config generator to let ycm know about specific make and library setups
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 " rust syntax
@@ -26,19 +27,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'rhysd/vim-clang-format'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
 syntax on
 filetype plugin indent on
-
-" remap leader key
-"let mapleader = '<space>'
-" vim-fugitive remapping with leader key
-"nnoremap <leader>b :Gblame<CR>
-"nnoremap <leader>s :Gstatus<CR>
 
 " sets vim's indentation char to be `
 let g:indentLine_char = '`'
@@ -173,15 +166,6 @@ set incsearch
 set expandtab
 set shiftwidth=4
 set tabstop=4
-
-" tab setting specifc to cs343 a6 with Jack's formatting style
-function! CS343Env()
-  let l:path = expand('%:p')
-  if l:path =~ '/media/xiaogz/Storage/MYDocuments/travaux scolaires/cs343/cs343_a6'
-    setlocal expandtab smarttab tabstop=2 shiftwidth=2
-  endif
-endfunction
-autocmd! BufReadPost,BufNewFile * call CS343Env()
 
 " make backspace work even against tabs like any other programs (mac-specific)
 set backspace=2
