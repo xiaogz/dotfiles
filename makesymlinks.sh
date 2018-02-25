@@ -1,11 +1,14 @@
 #!/bin/bash
 
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
 # This script creates symlinks from home directory to desired dotfiles in ~/dotfiles
 
 # variables
 curr_dir=~/dotfiles
 old_dir=~/dotfiles_old
-files="vimrc"
+files="vimrc tmux.conf"
 
 # create folder for backup of old dotfiles
 mkdir -p $old_dir
@@ -13,9 +16,9 @@ mkdir -p $old_dir
 cd $curr_dir
 
 for file in $files; do
-  echo "Moving old dotfiles to backup folder..."
+  echo acting on $file
   mv ~/.$file $old_dir
-  echo "Now creating symlinks for current dotfiles..."
   ln -fs $curr_dir/$file ~/.$file
 done
 
+# copy the ycm config file
