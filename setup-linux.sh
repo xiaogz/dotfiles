@@ -38,12 +38,12 @@ echo "alias gl='git log'" >> ~/.bashrc
 echo "alias gd='git diff'" >> ~/.bashrc
 echo "alias glo='git log --pretty=oneline'" >> ~/.bashrc
 
-source ~/.bashrc
-
 # add extra settings to ~/.profile
 echo "# prevent ctrl+D from closing terminal" >> ~/.profile
 echo "set -o ignoreeof" >> ~/.profile
 echo "# change capslock to control" >> ~/.profile
 echo "setxkbmap -layout us -option ctrl:nocaps" >> ~/.profile
 
-source ~/.profile
+# add useful git alias (stops push --force if someone else has updated upstream branch)
+git config --global alias.pushfwl push --force-with-lease
+
