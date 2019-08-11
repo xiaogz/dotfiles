@@ -8,7 +8,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # variables
 curr_dir=~/dotfiles
 old_dir=~/dotfiles_old
-files="vimrc tmux.conf"
+files="vimrc tmux.conf minttyrc"
 
 # create folder for backup of old dotfiles
 mkdir -p $old_dir
