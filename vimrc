@@ -147,6 +147,7 @@ augroup Web
   autocmd FileType html setlocal shiftwidth=2 tabstop=2
   autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
   autocmd FileType css setlocal shiftwidth=2 tabstop=2
+  autocmd BufNewFile,BufRead *.vue setlocal shiftwidth=2 tabstop=2 filetype=html
 augroup END
 
 " change tab settings when opening python files
