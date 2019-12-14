@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Installs VimPlug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
@@ -8,7 +9,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # variables
 curr_dir=~/dotfiles
 old_dir=~/dotfiles_old
-files="vimrc tmux.conf minttyrc"
+files="vimrc tmux.conf minttyrc clang-format"
 
 # create folder for backup of old dotfiles
 mkdir -p $old_dir
@@ -31,6 +32,7 @@ if [ -d ~/.vim/plugged/YouCompleteMe ]; then
 fi
 
 # add extra aliases to ~/.bashrc
+# TODO: use a separate file for bash aliases
 echo "# extra git-related aliases" >> ~/.bashrc
 echo "alias gs='git status'" >> ~/.bashrc
 echo "alias gsb='git status -sb'" >> ~/.bashrc

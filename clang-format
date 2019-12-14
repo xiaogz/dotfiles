@@ -1,0 +1,26 @@
+BasedOnStyle: Mozilla
+
+# you need both AlwaysBreakAfterReturnType and
+# AlwaysBreakAfterDefinitionReturnType to prevent breaking after function
+# return type
+AlwaysBreakAfterReturnType: None
+AlwaysBreakAfterDefinitionReturnType: None
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: true
+  AfterControlStatement: false
+  AfterEnum: true
+  AfterExternBlock: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterObjCDeclaration: true
+  AfterStruct: true
+  AfterUnion: true
+  BeforeCatch: true
+  BeforeElse: true
+  SplitEmptyFunction: false
+  SplitEmptyNamespace: false
+  SplitEmptyRecord: false
+
+ColumnLimit: 100
+IndentWidth: 4
