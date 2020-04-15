@@ -40,6 +40,9 @@ echo "alias gl='git log'" >> ~/.bashrc
 echo "alias gd='git diff'" >> ~/.bashrc
 echo "alias glo='git log --pretty=oneline'" >> ~/.bashrc
 
+echo "#append slash to symlinked directories during autocomplete tabbing" >> ~/.bashrc
+echo "bind 'set mark-symlinked-directories on'" >> ~/.bashrc
+
 # add extra settings to ~/.profile
 echo "# prevent ctrl+D from closing terminal" >> ~/.profile
 echo "set -o ignoreeof" >> ~/.profile
