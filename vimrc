@@ -223,7 +223,7 @@ set laststatus=2
 " make vim display fancy file info
 " see :help statusline for explanations
 " relative path, read-only & modified flag, percent left, line/total line
-set statusline=%f\ \ %r%m\ \|%P\ %l/%L\ -\ %c\|
+set statusline=%f\ %r%m\ B%n\ L%l/%L|
 " display current absolute line number
 set number
 " display relative line numbers elsewhere
