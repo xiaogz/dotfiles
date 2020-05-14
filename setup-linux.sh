@@ -9,7 +9,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # variables
 curr_dir=~/dotfiles
 old_dir=~/dotfiles_old
-files="vimrc tmux.conf minttyrc clang-format"
+files="vimrc tmux.conf minttyrc clang-format globalgitignore"
 
 # create folder for backup of old dotfiles
 mkdir -p $old_dir
@@ -50,5 +50,6 @@ echo "# change capslock to control" >> ~/.profile
 echo "setxkbmap -layout us -option ctrl:nocaps" >> ~/.profile
 
 # add useful git alias (stops push --force if someone else has updated upstream branch)
-git config --global alias.pushfwl push --force-with-lease
+git config --global alias.pushfwl 'push --force-with-lease'
+git config --global core.excludesfile '~/.globalgitignore'
 
