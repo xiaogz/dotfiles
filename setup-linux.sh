@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# MSYS2 specfic tools that aren't installed by default
+if [[ -n "${MSYSTEM}" ]]; then
+    pacman -S man curl wget tree tmux vim parallel
+fi
+
 #TODO: install truetype font from commandline
 if [[ ! -f "Go-Mono.ttf" ]]; then
     wget https://github.com/golang/image/raw/master/font/gofont/ttfs/Go-Mono.ttf
@@ -14,7 +19,11 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # variables
 curr_dir=~/dotfiles
 old_dir=~/dotfiles_old
-files="vimrc tmux.conf minttyrc clang-format globalgitignore"
+files="vimrc tmux.conf clang-format globalgitignore"
+
+if [[ -n "${MSYSTEM}" ]]; then
+    files+=" minttyrc"
+fi
 
 # create folder for backup of old dotfiles
 mkdir -p $old_dir
@@ -23,8 +32,10 @@ cd $curr_dir
 
 for file in $files; do
   echo acting on $file
+  if [[ -f "~/.$file" ]]; then
+      mv ~/.$file $old_dir
+  fi
   touch $file
-  mv ~/.$file $old_dir
   ln -fs $curr_dir/$file ~/.$file
 done
 
@@ -44,6 +55,11 @@ echo "alias gsb='git status -sb'" >> ~/.bashrc
 echo "alias gl='git log'" >> ~/.bashrc
 echo "alias gd='git diff'" >> ~/.bashrc
 echo "alias glo='git log --pretty=oneline'" >> ~/.bashrc
+echo "alias gl1='git log -n 1'" >> ~/.bashrc
+
+if [[ -n "${MSYSTEM}" ]]; then
+    echo "alias rg='rg --path-separator=\"//\"'" >> ~/.bashrc
+fi
 
 echo "#append slash to symlinked directories during autocomplete tabbing" >> ~/.bashrc
 echo "bind 'set mark-symlinked-directories on'" >> ~/.bashrc
