@@ -54,7 +54,7 @@ echo "alias gs='git status'" >> ~/.bashrc
 echo "alias gsb='git status -sb'" >> ~/.bashrc
 echo "alias gl='git log'" >> ~/.bashrc
 echo "alias gd='git diff'" >> ~/.bashrc
-echo "alias glo='git log --pretty=oneline'" >> ~/.bashrc
+echo "alias glo='git log --pretty=format:"%h  %as  %f"'" >> ~/.bashrc
 echo "alias gl1='git log -n 1'" >> ~/.bashrc
 
 if [[ -n "${MSYSTEM}" ]]; then
