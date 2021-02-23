@@ -6,9 +6,9 @@ if [[ -n "${MSYSTEM}" ]]; then
 fi
 
 #TODO: install truetype font from commandline
-if [[ ! -f "Go-Mono.ttf" ]]; then
-    wget https://github.com/golang/image/raw/master/font/gofont/ttfs/Go-Mono.ttf
-fi
+#if [[ ! -f "Go-Mono.ttf" ]]; then
+#    wget https://github.com/golang/image/raw/master/font/gofont/ttfs/Go-Mono.ttf
+#fi
 
 # Installs VimPlug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
