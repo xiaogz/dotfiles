@@ -2,7 +2,7 @@
 
 # MSYS2 specfic tools that aren't installed by default
 if [[ -n "${MSYSTEM}" ]]; then
-    pacman -S man curl wget tree tmux vim parallel
+    pacman -S man curl wget tree tmux vim parallel unzip
 fi
 
 #TODO: install truetype font from commandline
