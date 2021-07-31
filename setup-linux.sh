@@ -47,19 +47,8 @@ if [ -d ~/.vim/plugged/YouCompleteMe ]; then
     cp ycm_extra_conf.py ~/.vim/plugged/YouCompleteMe
 fi
 
-# add extra aliases to ~/.bashrc
-# TODO: use a separate file for bash aliases
-echo "# extra git-related aliases" >> ~/.bashrc
-echo "alias gs='git status'" >> ~/.bashrc
-echo "alias gsb='git status -sb'" >> ~/.bashrc
-echo "alias gl='git log'" >> ~/.bashrc
-echo "alias gd='git diff'" >> ~/.bashrc
-echo "alias glo='git log --pretty=format:"%h  %as  %f"'" >> ~/.bashrc
-echo "alias gl1='git log -n 1'" >> ~/.bashrc
-
-if [[ -n "${MSYSTEM}" ]]; then
-    echo "alias rg='rg --path-separator=\"//\"'" >> ~/.bashrc
-fi
+# makes .bashrc source this file
+echo ". .helpers" >> ~/.bashrc
 
 echo "#append slash to symlinked directories during autocomplete tabbing" >> ~/.bashrc
 echo "bind 'set mark-symlinked-directories on'" >> ~/.bashrc

@@ -1,0 +1,26 @@
+alias gs='git status'
+alias gsb='git status -sb'
+alias gl='git log'
+alias gd='git diff'
+alias glo='git log --pretty=format:"%h  %as  %f"'
+alias glon='git log --pretty=format:"%h  %as  %f" -n'
+alias gl1='git log -n 1'
+
+# remember to move ripgrep binary to /usr/local/bin and expose it to the path
+if [[ -n "${MSYSTEM}" ]]; then
+    echo "alias rg='rg --path-separator=\"//\"'" >> ~/.bashrc
+fi
+
+function gdc() {
+    git diff $1^..$1
+}
+
+function gdcs() {
+    git diff --stat $1^..$1
+}
+
+function mkcdir()
+{
+    mkdir "$@" && cd "$@"
+}
+
