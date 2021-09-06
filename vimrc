@@ -29,7 +29,7 @@ Plug 'lervag/vimtex', { 'for': 'tex' }
 " Git plugin that shows changed lines in file
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
-Plug 'editorconfig/editorconfig-vim'
+"Plug 'editorconfig/editorconfig-vim'
 Plug 'rhysd/vim-clang-format'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
