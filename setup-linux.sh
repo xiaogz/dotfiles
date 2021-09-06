@@ -19,7 +19,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 # variables
 curr_dir=~/dotfiles
 old_dir=~/dotfiles_old
-files="vimrc tmux.conf clang-format globalgitignore"
+files="vimrc tmux.conf clang-format globalgitignore helpers"
 
 if [[ -n "${MSYSTEM}" ]]; then
     files+=" minttyrc"
