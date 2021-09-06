@@ -19,9 +19,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'alvan/vim-closetag'
 " html % traversal
 Plug 'tmhedberg/matchit'
-"Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer'}
 "this lets vimplug load YCM but won't update it
-Plug '~/.vim/plugged/YouCompleteMe', {'do': './install.py --clang-completer'}
+"Plug '~/.vim/plugged/YouCompleteMe', {'do': './install.py --clangd-completer'}
 " ycm config generator to let ycm know about specific make and library setups
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 " rust syntax
