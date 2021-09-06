@@ -5,7 +5,7 @@ call plug#begin('~/.vim/plugged')
 " vim plugged
 Plug 'Yggdroot/indentLine'
 Plug 'vim-perl/vim-perl'
-Plug 'craigemery/vim-autotag'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'octol/vim-cpp-enhanced-highlight'
 " for fancy start screens
 Plug 'mhinz/vim-startify'
@@ -80,9 +80,19 @@ syntax enable
 set background=light
 colorscheme solarized
 
-" for craigemery/vim-autotag options
-let g:autotageTagsFile="tags"
-set tags=./tags,tags;$HOME
+" GutenTag options; see https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/
+let g:gutentags_add_default_project_roots = 0
+let g:gutentags_project_root = ['.git']
+let g:gutentags_cache_dir = expand('~/.gutentag-cache/')
+command! -nargs=0 GutentagsClearCache call system('rm ' . g:gutentags_cache_dir . '/*')
+let g:gutentags_generate_on_new = 1
+let g:gutentags_generate_on_missing = 1
+let g:gutentags_generate_on_write = 1
+let g:gutentags_generate_on_empty_buffer = 0
+let g:gutentags_ctags_extra_args = [
+      \ '--tag-relative=yes',
+      \ '--fields=+ailmnS',
+      \ ]
 
 "these 2 options forces whole word wraps
 set lbr
