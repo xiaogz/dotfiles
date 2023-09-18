@@ -8,7 +8,7 @@ alias gl1='git log -n 1'
 
 # remember to move ripgrep binary to /usr/local/bin and expose it to the path
 if [[ -n "${MSYSTEM}" ]]; then
-    echo "alias rg='rg --path-separator=\"//\"'" >> ~/.bashrc
+    alias rg='rg --smart-case --path-separator=//'
 fi
 
 function gdc() {
