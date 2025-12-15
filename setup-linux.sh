@@ -63,3 +63,7 @@ echo "setxkbmap -layout us -option ctrl:nocaps" >> ~/.profile
 git config --global alias.pushfwl 'push --force-with-lease'
 git config --global core.excludesfile '~/.globalgitignore'
 
+parse_git_branch() {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \*(.*\)/ (\1)/'
+}
+

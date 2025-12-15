@@ -77,7 +77,7 @@ let g:ycm_filetype_whitelist = {
   \}
 
 syntax enable
-set background=light
+set background=dark
 colorscheme solarized
 
 " GutenTag options; see https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/
@@ -262,6 +262,7 @@ nnoremap <Space> <C-w>w
 
 " 1-button tab jumps
 nnoremap <tab> gt
+nnoremap <S-tab> gT
 
 set showcmd
 " Show command while inputting
@@ -297,3 +298,4 @@ let g:vimtex_disable_version_warning = 1
 "\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 "\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
+set nofixeol

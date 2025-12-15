@@ -5,6 +5,8 @@ alias gd='git diff'
 alias glo='git log --pretty=format:"%h  %as  %f"'
 alias glon='git log --pretty=format:"%h  %as  %f" -n'
 alias gl1='git log -n 1'
+alias lsl='ls -l'
+alias rgcp='rg -g"*.cc" -g"*.cpp" -g"*.hpp" -g"*.h" -g"*.mm"
 
 # remember to move ripgrep binary to /usr/local/bin and expose it to the path
 if [[ -n "${MSYSTEM}" ]]; then
@@ -16,7 +18,7 @@ function gdc() {
 }
 
 function gdcs() {
-    git diff --stat $1^..$1
+    git diff --stat=9999 $1^..$1
 }
 
 function mkcdir()
