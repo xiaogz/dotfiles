@@ -257,8 +257,13 @@ noremap zm zb
 " but not in visual mode
 nnoremap gg ggzz
 
+let g:mapleader = " "
+
 " easily jump between splits
-nnoremap <Space> <C-w>w
+nnoremap <Leader>w <C-w>w
+
+" open current pane in a new pane at the same line
+nnoremap <Leader>t :let current_line = line('.')<CR>:tabe %<CR>:execute 'normal! ' . current_line . 'G'<CR>
 
 " 1-button tab jumps
 nnoremap <tab> gt
