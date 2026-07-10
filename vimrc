@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'Yggdroot/indentLine'
 Plug 'vim-perl/vim-perl'
 Plug 'ludovicchabant/vim-gutentags'
+Plug 'luochen1990/rainbow'
 Plug 'octol/vim-cpp-enhanced-highlight'
 " for fancy start screens
 Plug 'mhinz/vim-startify'
@@ -80,6 +81,10 @@ syntax enable
 set background=dark
 colorscheme solarized
 
+" vim rainbow (matching colored parenthesis)
+let g:rainbow_active = 1
+nnoremap <F6> :RainbowToggle
+
 " GutenTag options; see https://www.reddit.com/r/vim/comments/d77t6j/guide_how_to_setup_ctags_with_gutentags_properly/
 let g:gutentags_add_default_project_roots = 0
 let g:gutentags_project_root = ['.git']
@@ -107,6 +112,9 @@ let g:ftplugin_sql_omni_key = '<C-*>'
 
 " macro for html navigation
 runtime macros/machit.vim
+
+" Go to left tab when closing current tab instead of right.
+autocmd TabClose * tabprevious
 
 " for working with Metal files
 augroup Metal
@@ -168,7 +176,8 @@ augroup END
 " change tab size for latex files
 augroup LaTeX
   autocmd!
-  autocmd FileType tex setlocal expandtab tabstop=2 shiftwidth=2
+  autocmd FileType *.tex setlocal expandtab tabstop=2 shiftwidth=2 conceallevel=0
+  autocmd BufNewFile,BufRead *.tex setlocal expandtab tabstop=2 shiftwidth=2 conceallevel=0
 augroup END
 
 " ensure that cursor in insert mode is pipe not block
@@ -187,9 +196,9 @@ nnoremap dq 0D
 " tagbar is for jumping to functions/classes within source code file
 nnoremap <F8> :TagbarToggle<CR>
 " Gblame to see git blame on line basis
-nnoremap <F9> :Gblame<CR>
+nnoremap <F9> :Git blame<CR>
 " Gstatus to see git status easily; 'cc' to call :Gcommit
-nnoremap <F10> :Gstatus<CR>
+nnoremap <F10> :Git status<CR>
 
 " removes highlighted search results until next search
 nnoremap <silent> zp :nohlsearch<CR>
@@ -292,7 +301,7 @@ set ignorecase
 set cursorline
 
 "disable LaTeX symbol conversion
-let g:tex_conceal = ""
+let g:vimtex_syntax_conceal_disable = 1
 " make vim consider all .tex files as latex, not plaintex, etc
 let g:tex_flavor = "latex"
 "diable vimtex verbose warning
