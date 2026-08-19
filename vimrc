@@ -114,7 +114,7 @@ let g:ftplugin_sql_omni_key = '<C-*>'
 runtime macros/machit.vim
 
 " Go to left tab when closing current tab instead of right.
-autocmd TabClose * tabprevious
+autocmd TabClosed * tabprevious
 
 " for working with Metal files
 augroup Metal
